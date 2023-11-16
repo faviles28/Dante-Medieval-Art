@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0; /* Grey text in light mode */
+  --background-start-rgb: 245, 245, 220; /* Cream color background for light mode */
+  --background-end-rgb: 245, 245, 220; /* Consistent cream color */
+  --hyperlink-color: blue; /* Default hyperlink color for light mode */
+  --hyperlink-hover-color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255; /* White text in dark mode */
+    --background-start-rgb: 105, 105, 105; /* Dark grey background for dark mode */
+    --background-end-rgb: 105, 105, 105; /* Consistent dark grey color */
+    --hyperlink-color: rgb(231, 217, 33); /* Lighter color for visibility in dark mode */
+    --hyperlink-hover-color: blue;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/*--------------------------Header-------------------------------*/
+
+.header-container, .header-div {
+  text-align: center; /* Centers the content */
+}
+
+.highlighted {
+  font-family: 'Times New Roman', serif; /* Times New Roman font */
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+/*--------------------------Footer-------------------------------*/
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+}
+
+/*--------------------------Search-------------------------------*/
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* Adjust this value as needed to move closer to the header */
+  gap: 10px;
+}
+
+.search-container select, .search-container button {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333; /* Darker text color */
+  background-color: #fff;
+}
+
+.search-container button {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #e0e0e0a6;
+}
+
+.search-container button:disabled {
+  background-color: #f0f0f0;
+  cursor: default;
+  color: #999; /* Lighter color for disabled state */
+}
+
+/*--------------------------Cantos-------------------------------*/
+
+.canto {
+  font-family: 'Times New Roman', serif; /* Times New Roman font */
+  font-style: italic;
+  font-size: 20px;
+  padding: 20px; /* Add some padding around the content */
+  margin: auto; /* Center the div */
+  max-width: 800px; /* Maximum width of the content */
+  text-align: center; /* Justify text for better readability */
+}
+
+.canto h2 {
+  font-size: 24px; /* Larger font size, adjust as needed */
+  font-style: normal; /* Non-italicized text */
+  font-weight: bold;
+}
+
+.hyperlink {
+  color: var(--hyperlink-color);
+  text-decoration: none;
+}
+
+.hyperlink:hover {
+  color: var(--hyperlink-hover-color);
+}
