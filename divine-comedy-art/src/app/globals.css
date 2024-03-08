@@ -69,6 +69,11 @@ body {
 
 /*--------------------------Search-------------------------------*/
 
+.loading-bar {
+  text-align: center; /* Centers the content */
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .search-container {
   display: flex;
   flex-direction: column;
@@ -78,29 +83,33 @@ body {
   gap: 10px;
 }
 
-.search-container select, .search-container button {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  color: #333; /* Darker text color */
-  background-color: #fff;
+.search-container select, .search-container button, .search-container input[type="text"] {
+  width: 200px; /* Same width as the dropdowns and button */
+  padding: 10px; /* Same padding as the dropdowns and button */
+  border: 1px solid #ccc; /* Same border as the dropdowns and button */
+  border-radius: 4px; /* Same border-radius as the dropdowns and button */
+  color: #333; /* Same text color as the dropdowns */
+  background-color: #fff; /* Same background color as the dropdowns */
+}
+
+.search-container input[type="text"] {
+  outline: none; /* Optionally remove the outline to match the style more closely */
 }
 
 .search-container button {
-  background-color: #f0f0f0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #f0f0f0; /* Specific button background color */
+  cursor: pointer; /* Hand cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 .search-container button:hover {
-  background-color: #e0e0e0a6;
+  background-color: #e0e0e0a6; /* Button hover background color */
 }
 
 .search-container button:disabled {
-  background-color: #f0f0f0;
-  cursor: default;
-  color: #999; /* Lighter color for disabled state */
+  background-color: #f0f0f0; /* Disabled button background color */
+  cursor: default; /* Default cursor for disabled button */
+  color: #999; /* Text color for disabled button */
 }
 
 /*--------------------------Cantos-------------------------------*/
@@ -121,6 +130,59 @@ body {
   font-weight: bold;
 }
 
+.legend {
+  text-align: center;
+  overflow: hidden; /* Hide content that goes beyond the max-height */
+  max-height: 0; /* Start with max-height 0 */
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* Style for expanded legend */
+.legend.open {
+  max-height: 300px; /* Adjust according to the expected maximum content height */
+}
+
+.legend-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: auto;
+  background-color: grey;
+}
+
+.legend-button {
+  margin: 5px;
+  white-space: nowrap;
+}
+
+.legend-button:hover {
+  color: black
+}
+
+.legend-button::after {
+  content: '▼';
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+/* Style for the arrow when legend is open (pointing upwards) */
+.legend-button.open::after {
+  content: '▲';
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+.legend-button-word {
+  margin: 5px;
+  white-space: nowrap;
+}
+
+.legend-button-word:hover {
+  color: black
+}
+
 .hyperlink {
   color: var(--hyperlink-color);
   text-decoration: none;
@@ -128,4 +190,67 @@ body {
 
 .hyperlink:hover {
   color: var(--hyperlink-hover-color);
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.line-container p {
+  flex: 1; /* Allow the paragraph to take the remaining space after the line-number */
+  text-align: center; /* Center the text within the paragraph */
+  margin: 0; /* Remove default margin to maintain alignment */
+}
+
+.line-number {
+  color: #ccc; /* Light gray color for the line numbers */
+  margin-right: 16px; /* Adjust the spacing as needed */
+  font-size: 0.8em; /* Smaller font size for line numbers */
+  user-select: none; /* Prevent selection of line numbers */
+}
+
+/*--------------------------Stanzas-------------------------------*/
+
+.stanza {
+  font-family: 'Times New Roman', serif; /* Times New Roman font */
+  font-style: italic;
+  font-size: 20px;
+  padding: 20px; /* Add some padding around the content */
+  margin: auto; /* Center the div */
+  max-width: 800px; /* Maximum width of the content */
+  text-align: center; /* Justify text for better readability */
+}
+
+.stanza h2 {
+  font-size: 24px; /* Larger font size, adjust as needed */
+  font-style: normal; /* Non-italicized text */
+  font-weight: bold;
+}
+
+/*--------------------------Canto Page-------------------------------*/
+
+.nav-container.left {
+  position: fixed;
+  text-align: center;
+  top: 50%; /* Adjust as needed */
+  left: 20px
+}
+
+.nav-container.right {
+  position: fixed;
+  text-align: center;
+  top: 50%; /* Adjust as needed */
+  right: 20px
+}
+
+.nav-container:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.nav-button {
+  font-size: 30pt;
 }
